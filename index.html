@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#8B7CF6"
+    >
+
+    <meta
+        name="description"
+        content="Mia's Mini Arcade — kumpulan mini game sederhana, lucu, dan seru."
+    >
+
+    <title>Mia's Mini Arcade 🎮</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND MUSIC
+    ====================================================== -->
+
+    <audio
+        id="background-music"
+        src="shape-of-my-heart.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+
+    <!-- =====================================================
+         DECORATIVE BACKGROUND
+    ====================================================== -->
+
+    <div
+        class="background"
+        aria-hidden="true"
+    >
+
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="floating floating-1">✨</div>
+        <div class="floating floating-2">⭐</div>
+        <div class="floating floating-3">🌸</div>
+        <div class="floating floating-4">🍓</div>
+        <div class="floating floating-5">☁️</div>
+        <div class="floating floating-6">💫</div>
+        <div class="floating floating-7">🎀</div>
+        <div class="floating floating-8">🫧</div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MUSIC CONTROL
+         HANYA ADA SATU ELEMEN DENGAN ID INI
+    ====================================================== -->
+
+    <button
+        id="music-button"
+        class="music-button music-toggle"
+        type="button"
+        aria-label="Nyalakan musik"
+        aria-pressed="false"
+        title="Nyalakan / matikan musik"
+    >
+        🔇
+    </button>
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main id="app">
+
+
+        <!-- =================================================
+             01. LANDING SCREEN
+        ================================================== -->
+
+        <section
+            id="landing"
+            class="screen landing-screen active"
+            aria-labelledby="landing-title"
+        >
+
+            <div class="arcade-badge">
+                ✦ MIA'S MINI ARCADE ✦
+            </div>
+
+
+            <div class="mascot-container">
+
+                <div
+                    class="mascot-glow"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="mascot"
+                    id="landing-mascot"
+                    role="img"
+                    aria-label="Maskot kucing"
+                >
+                    🐱
+                </div>
+
+                <div
+                    class="mascot-shadow"
+                    aria-hidden="true"
+                ></div>
+
+            </div>
+
+
+            <div class="welcome-label">
+                🎮 MINI GAME COLLECTION
+            </div>
+
+
+            <h1 id="landing-title">
+                HALO,
+                <span>MIAA!</span>
+            </h1>
+
+
+            <p class="description">
+                Selamat datang di mini arcade kecil
+                yang isinya game receh tapi
+                lumayan bikin penasaran. 😭
+            </p>
+
+
+            <p class="description-sub">
+                Ada timer.
+                Ada skor.
+                Ada kemenangan.
+                Ada juga kemungkinan kamu jadi bocil. 👀
+            </p>
+
+
+            <div class="landing-user-card">
+
+                <div
+                    class="user-avatar"
+                    aria-hidden="true"
+                >
+                    👤
+                </div>
+
+                <div>
+
+                    <small>
+                        PLAYER
+                    </small>
+
+                    <strong id="landing-user">
+                        Belum login
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="start-button"
+                class="main-button"
+                type="button"
+            >
+                <span aria-hidden="true">▶</span>
+
+                <strong>
+                    MULAI MAIN
+                </strong>
+
+                <span aria-hidden="true">→</span>
+            </button>
+
+
+            <p class="hint">
+                ✨ daftar/login dulu · pilih game ·
+                lalu coba kalahkan skor sendiri
+            </p>
+
+
+            <div class="arcade-info">
+
+                <div class="info-item">
+
+                    <span aria-hidden="true">
+                        🎮
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            6
+                        </strong>
+
+                        <small>
+                            MINI GAMES
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="info-line"
+                    aria-hidden="true"
+                ></div>
+
+
+                <div class="info-item">
+
+                    <span aria-hidden="true">
+                        ⏱️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            15–60
+                        </strong>
+
+                        <small>
+                            SECOND
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="info-line"
+                    aria-hidden="true"
+                ></div>
+
+
+                <div class="info-item">
+
+                    <span aria-hidden="true">
+                        ☕
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            1
+                        </strong>
+
+                        <small>
+                            COFFEE REWARD
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02. ACCOUNT SCREEN
+        ================================================== -->
+
+        <section
+            id="account"
+            class="screen account-screen"
+            aria-labelledby="account-title"
+        >
+
+            <div class="account-card">
+
+                <div
+                    class="account-icon"
+                    aria-hidden="true"
+                >
+                    🎮
+                </div>
+
+                <div class="section-label">
+                    PLAYER ACCESS
+                </div>
+
+                <h2 id="account-title">
+                    Daftar dulu, baru main 😎
+                </h2>
+
+                <p>
+                    Biar skor dan progress kamu
+                    tersimpan di browser ini.
+                </p>
+
+
+                <!-- REGISTER -->
+
+                <form
+                    class="account-form"
+                    id="register-form"
+                    novalidate
+                >
+
+                    <h3>
+                        🆕 Buat akun
+                    </h3>
+
+
+                    <label
+                        class="sr-only"
+                        for="name-input"
+                    >
+                        Nama kamu
+                    </label>
+
+                    <input
+                        id="name-input"
+                        type="text"
+                        placeholder="Nama kamu"
+                        autocomplete="name"
+                        maxlength="40"
+                        required
+                    >
+
+
+                    <label
+                        class="sr-only"
+                        for="username-input"
+                    >
+                        Username
+                    </label>
+
+                    <input
+                        id="username-input"
+                        type="text"
+                        placeholder="Username"
+                        autocomplete="username"
+                        maxlength="24"
+                        required
+                    >
+
+
+                    <label
+                        class="sr-only"
+                        for="password-input"
+                    >
+                        Password
+                    </label>
+
+                    <input
+                        id="password-input"
+                        type="password"
+                        placeholder="Password minimal 4 karakter"
+                        autocomplete="new-password"
+                        minlength="4"
+                        maxlength="50"
+                        required
+                    >
+
+
+                    <button
+                        id="register-button"
+                        class="main-button small-button"
+                        type="submit"
+                    >
+                        🚀 DAFTAR & MAIN
+                    </button>
+
+                </form>
+
+
+                <div
+                    class="account-divider"
+                    aria-hidden="true"
+                >
+                    <span>
+                        ATAU
+                    </span>
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <form
+                    class="account-form"
+                    id="login-form"
+                    novalidate
+                >
+
+                    <h3>
+                        🔑 Login
+                    </h3>
+
+
+                    <label
+                        class="sr-only"
+                        for="login-username"
+                    >
+                        Username
+                    </label>
+
+                    <input
+                        id="login-username"
+                        type="text"
+                        placeholder="Username"
+                        autocomplete="username"
+                        maxlength="24"
+                        required
+                    >
+
+
+                    <label
+                        class="sr-only"
+                        for="login-password"
+                    >
+                        Password
+                    </label>
+
+                    <input
+                        id="login-password"
+                        type="password"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        maxlength="50"
+                        required
+                    >
+
+
+                    <button
+                        id="login-button"
+                        class="secondary-button"
+                        type="submit"
+                    >
+                        🔓 LOGIN
+                    </button>
+
+                </form>
+
+
+                <button
+                    id="account-back-button"
+                    class="text-button"
+                    type="button"
+                >
+                    ← Kembali
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03. GAME MENU
+        ================================================== -->
+
+        <section
+            id="menu"
+            class="screen menu-screen"
+            aria-labelledby="menu-title"
+        >
+
+            <header class="top-bar">
+
+                <button
+                    id="home-button"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Kembali ke halaman utama"
+                    title="Home"
+                >
+                    ⌂
+                </button>
+
+
+                <div
+                    class="logo"
+                    aria-label="Mia Arcade"
+                >
+                    🎮
+                    <span>
+                        MIA ARCADE
+                    </span>
+                </div>
+
+
+                <div
+                    class="score-pill"
+                    aria-label="Total skor"
+                >
+                    ⭐
+                    <span id="total-score">
+                        0
+                    </span>
+                </div>
+
+            </header>
+
+
+            <div class="menu-heading">
+
+                <div class="section-label">
+                    CHOOSE YOUR CHALLENGE
+                </div>
+
+                <h2 id="menu-title">
+                    Pilih game kamu 👀
+                </h2>
+
+                <p>
+                    Jangan tertipu tampilannya.
+                    <br>
+                    Semuanya punya timer.
+                </p>
+
+
+                <div class="player-chip">
+
+                    👤
+
+                    <span id="menu-user">
+                        Player
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="game-list"
+                role="list"
+            >
+
+
+                <!-- GAME 1 -->
+
+                <button
+                    class="game-card"
+                    data-game="heart-catch"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Heart Catch"
+                >
+
+                    <span class="game-number">
+                        01
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        💗
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Heart Catch
+                        </strong>
+
+                        <small>
+                            Tangkap target secepat mungkin.
+                        </small>
+
+                        <em>
+                            ⏱ 20 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GAME 2 -->
+
+                <button
+                    class="game-card"
+                    data-game="flower-memory"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Flower Memory"
+                >
+
+                    <span class="game-number">
+                        02
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        🌸
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Flower Memory
+                        </strong>
+
+                        <small>
+                            Cari 6 pasangan dari 12 kartu.
+                        </small>
+
+                        <em>
+                            ⏱ 45 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GAME 3 -->
+
+                <button
+                    class="game-card"
+                    data-game="berry-rush"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Berry Rush"
+                >
+
+                    <span class="game-number">
+                        03
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        🍓
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Berry Rush
+                        </strong>
+
+                        <small>
+                            Kejar stroberi sebelum kabur.
+                        </small>
+
+                        <em>
+                            ⏱ 20 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GAME 4 -->
+
+                <button
+                    class="game-card"
+                    data-game="save-the-cat"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Save The Cat"
+                >
+
+                    <span class="game-number">
+                        04
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        🐱
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Save The Cat
+                        </strong>
+
+                        <small>
+                            Gerakkan kucing dan hindari meteor.
+                        </small>
+
+                        <em>
+                            ⏱ 15 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GAME 5 -->
+
+                <button
+                    class="game-card"
+                    data-game="quiz"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Mia Quiz"
+                >
+
+                    <span class="game-number">
+                        05
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        🧠
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Mia Quiz
+                        </strong>
+
+                        <small>
+                            10 skenario absurd tentang Mia.
+                        </small>
+
+                        <em>
+                            ⏱ 60 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GAME 6 -->
+
+                <button
+                    class="game-card duo-card"
+                    data-game="duo"
+                    type="button"
+                    role="listitem"
+                    aria-label="Main Duo Challenge"
+                >
+
+                    <span class="game-number">
+                        06
+                    </span>
+
+                    <span
+                        class="game-icon"
+                        aria-hidden="true"
+                    >
+                        👥
+                    </span>
+
+                    <span class="game-information">
+
+                        <strong>
+                            Duo Challenge
+                        </strong>
+
+                        <small>
+                            Main berdua. Jangan kalah.
+                        </small>
+
+                        <em>
+                            ⏱ 30 SEC
+                        </em>
+
+                    </span>
+
+                    <span
+                        class="game-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRESS
+            ================================================== -->
+
+            <div class="progress-container">
+
+                <div class="progress-header">
+
+                    <span>
+                        🏆 ARCADE PROGRESS
+                    </span>
+
+                    <strong id="progress-text">
+                        0 / 6
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Progress arcade"
+                    aria-valuemin="0"
+                    aria-valuemax="6"
+                    aria-valuenow="0"
+                >
+
+                    <div
+                        id="progress-bar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+
+                <p id="progress-hint">
+                    Selesaikan semua game untuk
+                    membuka hadiah kecil. ☕
+                </p>
+
+            </div>
+
+
+            <button
+                id="reset-score-button"
+                class="reset-button"
+                type="button"
+            >
+                🔄 Reset skor & progress
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             04. GAME SCREEN
+        ================================================== -->
+
+        <section
+            id="game"
+            class="screen game-screen"
+            aria-labelledby="game-title"
+        >
+
+            <header class="top-bar">
+
+                <button
+                    id="back-button"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Kembali ke daftar game"
+                    title="Kembali"
+                >
+                    ←
+                </button>
+
+
+                <div
+                    id="game-name"
+                    class="game-name"
+                >
+                    GAME 01
+                </div>
+
+
+                <div
+                    class="score-pill"
+                    aria-label="Total skor"
+                >
+                    ⭐
+
+                    <span id="game-total-score">
+                        0
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <div class="game-introduction">
+
+                <div
+                    id="game-category"
+                    class="section-label"
+                >
+                    REFLEX CHALLENGE
+                </div>
+
+                <h2 id="game-title">
+                    Heart Catch 💗
+                </h2>
+
+                <p id="game-description">
+                    Tangkap target secepat mungkin.
+                </p>
+
+            </div>
+
+
+            <!-- GAME HUD -->
+
+            <div
+                class="game-hud"
+                aria-label="Informasi permainan"
+            >
+
+                <div class="hud-item">
+
+                    <small>
+                        TIME
+                    </small>
+
+                    <strong id="timer">
+                        20
+                    </strong>
+
+                    <span>
+                        SEC
+                    </span>
+
+                </div>
+
+
+                <div class="hud-item">
+
+                    <small>
+                        SCORE
+                    </small>
+
+                    <strong id="game-score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="hud-item">
+
+                    <small>
+                        TARGET
+                    </small>
+
+                    <strong id="target">
+                        0/10
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME ARENA -->
+
+            <div
+                id="game-arena"
+                class="game-arena"
+                tabindex="0"
+                aria-label="Area permainan"
+            >
+
+                <div
+                    class="arena-message"
+                    id="arena-message"
+                >
+
+                    <div aria-hidden="true">
+                        🎮
+                    </div>
+
+                    <strong>
+                        SIAP? 😎
+                    </strong>
+
+                    <span>
+                        Klik tombol di bawah kalau berani.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME CONTROL -->
+
+            <div class="game-controls">
+
+                <button
+                    id="start-game-button"
+                    class="main-button"
+                    type="button"
+                >
+                    ▶ MULAI GAME
+                </button>
+
+
+                <p
+                    id="game-status"
+                    class="game-status"
+                    aria-live="polite"
+                >
+                    Jangan sampai kalah sama game receh. 😭
+                </p>
+
+            </div>
+
+
+            <!-- TOUCH CONTROLS -->
+
+            <div
+                id="touch-controls"
+                class="touch-controls"
+                aria-label="Kontrol gerakan kucing"
+            >
+
+                <button
+                    class="empty"
+                    type="button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                ></button>
+
+                <button
+                    type="button"
+                    data-direction="up"
+                    aria-label="Gerak ke atas"
+                >
+                    ↑
+                </button>
+
+                <button
+                    class="empty"
+                    type="button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                ></button>
+
+
+                <button
+                    type="button"
+                    data-direction="left"
+                    aria-label="Gerak ke kiri"
+                >
+                    ←
+                </button>
+
+                <button
+                    type="button"
+                    data-direction="down"
+                    aria-label="Gerak ke bawah"
+                >
+                    ↓
+                </button>
+
+                <button
+                    type="button"
+                    data-direction="right"
+                    aria-label="Gerak ke kanan"
+                >
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             05. RESULT SCREEN
+        ================================================== -->
+
+        <section
+            id="result"
+            class="screen result-screen"
+            aria-labelledby="result-title"
+        >
+
+            <div
+                id="result-icon"
+                class="result-icon"
+                aria-hidden="true"
+            >
+                🏆
+            </div>
+
+
+            <div
+                id="result-label"
+                class="section-label"
+            >
+                ROUND COMPLETE
+            </div>
+
+
+            <h2 id="result-title">
+                MANTAP! 😎
+            </h2>
+
+
+            <p id="result-message">
+                Kamu berhasil menyelesaikan game.
+            </p>
+
+
+            <div class="final-score">
+
+                <span>
+                    SKOR KAMU
+                </span>
+
+                <strong id="final-score">
+                    0
+                </strong>
+
+            </div>
+
+
+            <button
+                id="retry-button"
+                class="main-button"
+                type="button"
+            >
+                🔄 MAIN LAGI
+            </button>
+
+
+            <button
+                id="menu-button"
+                class="secondary-button"
+                type="button"
+            >
+                ← KEMBALI KE ARCADE
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             06. BONUS SCREEN
+        ================================================== -->
+
+        <section
+            id="bonus"
+            class="screen bonus-screen"
+            aria-labelledby="bonus-title"
+        >
+
+            <div
+                class="bonus-confetti"
+                aria-hidden="true"
+            >
+                ✨ 🎉 ✨
+            </div>
+
+
+            <div
+                class="bonus-icon"
+                aria-hidden="true"
+            >
+                ☕
+            </div>
+
+
+            <div class="section-label">
+                ACHIEVEMENT UNLOCKED
+            </div>
+
+
+            <h2 id="bonus-title">
+                OKE, LUMAYAN JAGO. 😭
+            </h2>
+
+
+            <p>
+                Semua game sudah ditaklukkan.
+                <br>
+                Kucing selamat.
+                <br>
+                Stroberi habis.
+                <br>
+                Otak masih aman. 🫡
+            </p>
+
+
+            <div class="coffee-reward">
+
+                <div
+                    class="coffee-cup"
+                    aria-hidden="true"
+                >
+                    ☕
+                </div>
+
+                <div>
+
+                    <strong>
+                        HADIAH KOPI
+                    </strong>
+
+                    <small>
+                        Karena sudah bertahan
+                        sampai game terakhir.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="bonus-button"
+                class="main-button"
+                type="button"
+            >
+                ☕ AMBIL HADIAH KOPI
+            </button>
+
+
+            <p class="bonus-note">
+                *Hadiah kopi versi digital dulu.
+                Jangan nagih beneran 😭
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST / NOTIFICATION
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =====================================================
+         MUSIC UNLOCK
+         Browser membutuhkan interaksi pengguna sebelum audio
+         dapat diputar. Klik pertama pengguna akan digunakan
+         untuk mengizinkan playback.
+    ====================================================== -->
+
+    <script>
+        (() => {
+            const music = document.getElementById("background-music");
+            const musicButton = document.getElementById("music-button");
+
+            if (!music) return;
+
+            music.volume = 0.45;
+
+            let musicUnlocked = false;
+
+            const startMusic = async () => {
+                if (musicUnlocked) return;
+
+                try {
+                    await music.play();
+                    musicUnlocked = true;
+
+                    if (musicButton) {
+                        musicButton.textContent = "🔊";
+                        musicButton.setAttribute(
+                            "aria-label",
+                            "Matikan musik"
+                        );
+                        musicButton.setAttribute(
+                            "aria-pressed",
+                            "true"
+                        );
+                        musicButton.setAttribute(
+                            "title",
+                            "Matikan musik"
+                        );
+                    }
+                } catch (error) {
+                    /*
+                     * Browser masih dapat menolak playback pada
+                     * kondisi tertentu. Tombol musik tetap dapat
+                     * digunakan untuk mencoba kembali.
+                     */
+                }
+            };
+
+            /*
+             * Klik pertama pada halaman.
+             * Ini memenuhi gesture pengguna yang dibutuhkan
+             * browser untuk mengizinkan audio.
+             */
+            document.addEventListener(
+                "pointerdown",
+                startMusic,
+                {
+                    once: true,
+                    passive: true
+                }
+            );
+
+            /*
+             * Dukungan keyboard.
+             */
+            document.addEventListener(
+                "keydown",
+                startMusic,
+                {
+                    once: true
+                }
+            );
+
+            /*
+             * Tombol musik.
+             * Mencegah event ini dianggap sekadar klik biasa
+             * tanpa mengubah fungsi tombol.
+             */
+            if (musicButton) {
+
+                musicButton.addEventListener("click", async () => {
+
+                    try {
+
+                        if (music.paused) {
+
+                            await music.play();
+
+                            musicButton.textContent = "🔊";
+
+                            musicButton.setAttribute(
+                                "aria-label",
+                                "Matikan musik"
+                            );
+
+                            musicButton.setAttribute(
+                                "aria-pressed",
+                                "true"
+                            );
+
+                            musicButton.setAttribute(
+                                "title",
+                                "Matikan musik"
+                            );
+
+                        } else {
+
+                            music.pause();
+
+                            musicButton.textContent = "🔇";
+
+                            musicButton.setAttribute(
+                                "aria-label",
+                                "Nyalakan musik"
+                            );
+
+                            musicButton.setAttribute(
+                                "aria-pressed",
+                                "false"
+                            );
+
+                            musicButton.setAttribute(
+                                "title",
+                                "Nyalakan musik"
+                            );
+                        }
+
+                    } catch (error) {
+
+                        console.warn(
+                            "Musik belum dapat diputar:",
+                            error
+                        );
+
+                    }
+
+                });
+
+            }
+
+        })();
+    </script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT UTAMA
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
